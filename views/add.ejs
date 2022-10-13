@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm sinh viên</title>
+    <link rel="stylesheet" href="add.css">
+</head>
+<body>
+    <h1>THÊM</h1>
+    <form action="/" method="POST" enctype="multipart/form-data" onsubmit="return onSubmit()">
+
+        <div class="form-group">
+            <span style="color: red; font-style: italic;" id="err_maSV"></span>
+            <br/>
+            <input id="maSV" type="text" name="maSV" placeholder="Nhập mã sinh viên...">
+        </div>
+
+        <div class="form-group">
+            <span style="color: red; font-style: italic;" id="err_tenSV"></span>
+            <br/>
+            <input id="tenSV" type="text" name="tenSV" placeholder="Nhập tên sinh viên...">
+        </div>
+
+        <div class="form-group">
+            <span style="color: red; font-style: italic;" id="err_gioiTinh"></span>
+            <br/>
+            <input id="gioiTinh" type="text" name="gioiTinh" placeholder="Nhập giới tính sinh viên...">
+        </div>
+
+        <div class="form-group">
+            <span style="color: red; font-style: italic;" id="err_soDienThoai"></span>
+            <br/>
+            <input id="soDienThoai" type="text" name="soDienThoai" placeholder="Nhập số điện thoại sinh viên...">
+        </div>
+
+        <div class="form-group">
+            <span style="color: red; font-style: italic;" id="err_email"></span>
+            <br/>
+            <input id="email" type="text" name="email" placeholder="Nhập số điện thoại sinh viên...">
+        </div>
+        
+        <br/>
+        <input type="submit" value="luu" class="btn btn-success">
+    </form>
+    <script>
+        const err_maSV = document.getElementById('err_maSV')
+        const err_tenSV = document.getElementById('err_tenSV')
+        const err_gioiTinh = document.getElementById('err_gioiTinh')
+        const err_soDienThoai = document.getElementById('err_soDienThoai')
+        const err_email = document.getElementById('err_email')
+
+        const maSV = document.getElementById('maSV')
+        const tenSV = document.getElementById('tenSV')
+        const gioiTinh = document.getElementById('gioiTinh')
+        const soDienThoai = document.getElementById('soDienThoai')
+        const email = document.getElementById('email')
+        function onSubmit() {
+            let ma = maSV.value.trim();
+            let ten = tenSV.value.trim();
+            let gt = gioiTinh.value.trim();
+            let sdt = soDienThoai.value.trim();
+            let em = email.value.trim();
+            
+            err_maSV.innerText = "";
+            err_tenSV.innerText = "";
+            err_gioiTinh.innerText = "";
+            err_soDienThoai.innerText = "";
+            err_email.innerText = "";
+
+            if (ma.length <= 0) {
+                err_maSV.innerText = "ten khong dc de trong"
+                return false
+            }
+            if (!/^(SV[0-9]{3})$/.test(ma)){
+                err_maSV.innerText = "email phai dinh dang: vidu@vidu.vidu"
+                return false
+            }
+            
+            if (ten.length <= 0) {
+                err_tenSV.innerText = "ten khong dc de trong"
+                return false
+            }
+            if (!/^[AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+ [AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+(?: [AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]*)*$/.test(ten)){
+                err_tenSV.innerText = "ten khong duoc chua so va ki tu dac biet"
+                return false
+            }
+            
+            
+            if (gt.length <= 0) {
+                err_gioiTinh.innerText = "ten khong dc de trong"
+                return false
+            }
+
+            //toi day
+            if (!/^(Nam)]$/.test(gt)){
+                err_gioiTinh.innerText = "ten khong duoc chua so va ki tu dac biet"
+                return false
+            }
+            if (sdt.length <= 0) {
+                err_soDienThoai.innerText = "ten khong dc de trong"
+                return false
+            }
+ 
+        
+            if (em.length <= 0) {
+                err_email.innerText = "ten khong dc de trong"
+                return false
+            }
+            if (!/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/.test(em)){
+                err_email.innerText = "email phai dinh dang: vidu@vidu.vidu"
+                return false
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

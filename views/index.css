@@ -1,0 +1,100 @@
+* {
+    font-family: sans-serif;
+}
+
+body{
+    background-color: #FAD4D4;
+}
+
+#delete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: #f36e6e;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.styled-table {
+    text-align: center;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #F47C7C;
+    color: #ffffff;
+    /* text-align: left; */
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid black;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #ef9f9faf;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.form_input form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_input form input {
+    height: 30px;
+    width: 300px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-color: #009879;
+}
+
+.btnAdd {
+    border-radius: 8px;
+    padding: 10px 30px;
+    margin: auto;
+    background-color: #F47C7C;
+    border: none;
+    font-size: 16px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.btnAdd:hover {
+    background-color: #f47c7c8a;
+}
+
+.btnDelete {
+    border-radius: 8px;
+    padding: 10px 30px;
+    margin: auto;
+    background-color: #F47C7C;
+    border: none;
+    font-size: 16px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.btnDelete:hover{
+    background-color: #f47c7c8a;
+}

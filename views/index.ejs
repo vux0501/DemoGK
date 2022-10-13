@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sinh viên</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="content">
+        <form id="delete" method="POST" action="/delete" enctype="multipart/form-data">
+            <div class="title">
+                <h1>Danh sách sản phẩm</h1>
+            </div>
+
+
+            <table border="1" class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Mã sinh viên</th>
+                        <th>Tên sinh viên</th>
+                        <th>Giới tính</th>
+                        <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th>Chọn</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <% for (let i=0;i < listSV.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%=listSV[i].maSV%>
+                            </td>
+                            <td>
+                                <%=listSV[i].tenSV%>
+                            </td>
+                            <td>
+                                <%=listSV[i].gioiTinh%>
+                            </td>
+                            <td>
+                                <%=listSV[i].soDienThoai%>
+                            </td>
+                            <td>
+                                <%=listSV[i].email%>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="<%= listSV[i].maSV %>" />
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+            <div style="align-items: center;">
+                    <button class="btnAdd" id="btnAdd">Thêm mới</button>
+                    <input type="submit" class="btnDelete" value="Xóa">
+            </div> 
+        </form>
+    </div>
+    <script>
+        document.getElementById('btnAdd').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location = '/add';
+        });
+    </script>
+</body>
+</html>
